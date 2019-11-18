@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Arcanis\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Arcanis\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Prototype Perturbation des routines.-177108909.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Arcanis\Documents\GitHub\proto-perturbation-routines\Prototype Perturbation des routines" t="IncludeRecursive">
+    <e p="C:\Users\Arcanus\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Arcanus\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Prototype Perturbation des routines.698925407.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Arcanus\Documents\GitHub\proto-perturbation-routines\Prototype Perturbation des routines" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Agent1Behaviour.cs" t="Include" />
+        <e p="AgentBase.cs" t="Include" />
         <e p="CubeScript.cs" t="Include" />
         <e p="HandlingScript.cs" t="Include" />
         <e p="PlayerController.cs" t="Include" />
