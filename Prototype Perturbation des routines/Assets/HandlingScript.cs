@@ -19,15 +19,6 @@ public class HandlingScript : MonoBehaviour {
         this.rs = transform.Find("HandReach").GetComponent<ReachScript>();
     }
 
-    // Update is called once per frame
-    
-
-    void FixedUpdate() {
-        if (this.hasCube) {
-            this.cubeInHand.GetComponent<Rigidbody>().MovePosition(this.hand.position);
-        }
-    }
-
     public void TakeCube() {
         if (this.rs.Cubes.Count > 0) {
             this.cubeInHand = this.rs.Cubes[0];
@@ -40,7 +31,7 @@ public class HandlingScript : MonoBehaviour {
     public void ThrowCube() {
         var cubeRb = this.cubeInHand.GetComponent<Rigidbody>();
         cubeRb.useGravity = true;
-        cubeRb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+        cubeRb.AddForce(this.hand.forward * throwForce, ForceMode.Impulse);
         this.hasCube = false;
     }
 
@@ -48,5 +39,16 @@ public class HandlingScript : MonoBehaviour {
         
     }
 
-    
+    public void MoveHand(Vector3 newHandPosition, Quaternion newHandRotation) {
+        this.hand.position = newHandPosition;
+        this.hand.rotation = newHandRotation;
+
+    }
+
+    private void FixedUpdate() {
+        if (this.hasCube) {
+            this.cubeInHand.transform.position = this.hand.position;
+        }
+        
+    }
 }

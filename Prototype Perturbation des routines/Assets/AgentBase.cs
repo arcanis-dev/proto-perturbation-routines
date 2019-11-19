@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentBase : MonoBehaviour{
+public class AgentBase : MonoBehaviour {
+
+    public float speed;
     public enum AgentStates {
         Routine,
         Retablissement
     }
 
-    public AgentStates state = new AgentStates();
+    public AgentStates state;
+    public AgentStates previousState;
 
     protected void SwitchState(AgentStates newState) {
         OnEnterState();
+        previousState = this.state;
         state = newState;
         OnExitState();
     }
 
-    protected void OnEnterState() {
-        switch (state) {
-            
-        }
+    virtual protected void OnEnterState() {
         
     }
 
-    protected void OnExitState() {
+    virtual protected void OnExitState() {
         
     }
+    
+    
     
 }
 
