@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: blue
-  flashTimer: 0.4
+  flashTimer: 2
   isFlashing: 0

@@ -6,30 +6,39 @@ using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.XR;
 
 public class ReachScript : MonoBehaviour {
-    public List<GameObject> Cubes;
+    public List<GameObject> cubes;
     public Collider handReach;
-    public float flashTimer = 0.4f;
     private void Start() {
         this.handReach = this.GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Cube")) {
-            this.Cubes.Add(other.gameObject);
-            
+            Debug.Log("cube entered");
+            this.cubes.Add(other.gameObject);
+
+            if (transform.parent.gameObject.tag == "Player") {
+                CubeScript cs = other.gameObject.GetComponent<CubeScript>();
+                cs.flashRoutine = cs.FlashCubeTimer();
+                cs.canFlash = true;
+                StartCoroutine(cs.flashRoutine);
+            }
+
         }
     }
 
     private void OnTriggerStay(Collider other) {
         if (other.CompareTag("Cube")) {
-            other.gameObject.GetComponent<CubeScript>().FlashCubeTimer(true);
+            
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.CompareTag("Cube")) {
-            if (this.Cubes.Contains(other.gameObject)) {
-                this.Cubes.Remove(other.gameObject);
+            if (this.cubes.Contains(other.gameObject)) {
+                CubeScript cs = other.gameObject.GetComponent<CubeScript>();
+                cs.canFlash = false;
+                this.cubes.Remove(other.gameObject);
             }
         }
     }

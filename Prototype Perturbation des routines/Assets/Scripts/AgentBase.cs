@@ -14,10 +14,10 @@ public class AgentBase : MonoBehaviour {
     public AgentStates previousState;
 
     protected void SwitchState(AgentStates newState) {
-        OnEnterState();
+        OnExitState();
         previousState = this.state;
         state = newState;
-        OnExitState();
+        OnEnterState();
     }
 
     virtual protected void OnEnterState() {
